@@ -9,7 +9,7 @@ import (
     _ "github.com/lib/pq"
 )
 
-var TestQueries *Queries
+var testQueries *Queries
 var testDB *sql.DB
 
 const (
@@ -24,7 +24,7 @@ func TestMain(m *testing.M) {
         log.Fatal("Cannot connect to db: ", err)
     }
 
-    TestQueries = New(testDB)
+    testQueries = New(testDB)
 
     os.Exit(m.Run())
 }

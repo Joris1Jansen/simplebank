@@ -34,4 +34,22 @@ mock:
 testapi:
 	go test -v -cover ./api
 
+tf-init:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform init
+
+tf-fmt:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform fmt
+
+tf-val:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform validate
+
+tf-plan:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform plan
+
+tf-apply:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform apply
+
+tf-destroy:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform destroy
+
 .PHONY: postgres createdb dropdb migrateup migrateup1 migratedown migratedown1 sqlc test server mock

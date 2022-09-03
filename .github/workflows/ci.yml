@@ -3,5 +3,8 @@ on: [pull_request]
 jobs:
   call-another-job:
     uses: ./.github/workflows/foo.yml
+  and-another-one:
+    needs: call-another-job
+    uses: ./.github/workflow/foo.yml
   # uses: ./.github/workflows/linting.yml
   # linting: Joris1Jansen/simplebank/.github/workflows/linting.yml

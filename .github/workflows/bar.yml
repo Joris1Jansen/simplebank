@@ -1,0 +1,12 @@
+name: Bar reusable workflow
+
+on:
+  workflow_call:
+
+jobs:
+  example_job:
+    name: Baaaarr
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: echo "Hello World!"

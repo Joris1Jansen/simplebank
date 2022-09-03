@@ -1,4 +1,5 @@
 name: Continuous Integration
 on: [pull_request]
 jobs:
-  linting: Joris1Jansen/simplebank/.github/workflows/linting.yml
+  uses: Joris1Jansen/simplebank/.github/workflows/linting.yml
+  # linting: Joris1Jansen/simplebank/.github/workflows/linting.yml

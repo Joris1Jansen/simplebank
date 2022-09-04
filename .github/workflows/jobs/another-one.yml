@@ -1,0 +1,12 @@
+name: jobs/Foo reusable workflow
+
+on:
+  workflow_call:
+
+jobs:
+  jobs_folder_job:
+    name: From another folder
+    runs-on: ubuntu-latest
+    steps:
+      - name: From another folder 
+        run: echo "Hello World!"

@@ -9,3 +9,6 @@ jobs:
   build:
     uses: ./.github/workflows/bar.yml
     needs: test
+  jobsfolder:
+    uses: ./.github/workflows/jobs/another-one.yml
+    needs: test

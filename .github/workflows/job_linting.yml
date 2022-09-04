@@ -1,10 +1,6 @@
 name: Lint Golang 
 on:
   workflow_call:
-# permissions:
-#   contents: read
-  # Optional: allow read access to pull request. Use with `only-new-issues` option.
-  # pull-requests: read
 jobs:
   lint_golang:
     name: Lint Golang
@@ -24,7 +20,7 @@ jobs:
           # working-directory: somedir
 
           # Optional: golangci-lint command line arguments.
-          args: --issues-exit-code=0
+          # args: --issues-exit-code=0
 
           # Optional: show only new issues if it's a pull request. The default value is `false`.
           # only-new-issues: true
@@ -38,3 +34,10 @@ jobs:
 
           # Optional: if set to true then the action don't cache or restore ~/.cache/go-build.
           # skip-build-cache: true
+  
+  lint_terraform:
+    name: Lint Terraform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint Terraform
+        run: make tf-init env=dev

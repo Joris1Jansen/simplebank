@@ -2,13 +2,13 @@ name: CI
 on: [pull_request]
 jobs:
   lint:
-    uses: ./.github/workflows/foo.yml
-  test:
-    uses: ./.github/workflows/bar.yml
-    needs: lint
-  build:
-    uses: ./.github/workflows/bar.yml
-    needs: test
-  folderjob:
-    uses: ./.github/workflows/jobs/folderjob.yml
-    needs: test
+    uses: ./.github/workflows/jobs_linting.yml
+  # test:
+  #   uses: ./.github/workflows/bar.yml
+  #   needs: lint
+  # build:
+  #   uses: ./.github/workflows/bar.yml
+  #   needs: test
+  # folderjob:
+  #   uses: ./.github/workflows/jobs/folderjob.yml
+  #   needs: test

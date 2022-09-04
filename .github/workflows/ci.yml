@@ -1,13 +1,11 @@
-name: Continuous Integration
+name: CI
 on: [pull_request]
 jobs:
-  call-another-job:
+  lint:
     uses: ./.github/workflows/foo.yml
-  call-bar-job:
+  test:
     uses: ./.github/workflows/bar.yml
-    needs: call-another-job
-  # and-another-one:
-  #   needs: call-another-job
-  #   uses: ./.github/workflow/foo.yml
-  # uses: ./.github/workflows/linting.yml
-  # linting: Joris1Jansen/simplebank/.github/workflows/linting.yml
+    needs: lint
+  build:
+    uses: ./.github/workflows/bar.yml
+    needs: test

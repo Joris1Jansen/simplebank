@@ -40,4 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lint Terraform
-        run: make tf-init env=dev
+        uses: hashicorp/setup-terraform@v2
+        run: |
+          terraform init -backend=false
+          make tf-init env=dev

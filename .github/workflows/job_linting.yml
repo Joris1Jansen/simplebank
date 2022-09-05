@@ -39,22 +39,22 @@ jobs:
           terraform validate 
           cd ../..
 
-      - name: Initialize Terraform (uat)
-        run: |
-          cd ./uat/tf
-          terraform init -backend=false
-
-      - name: Lint Terraform (uat) 
-        run: |
-          terraform validate 
-          cd ../..
-
-      - name: Initialize Terraform (prd)
-        run: |
-          cd ./prd/tf
-          terraform init -backend=false
-
-      - name: Lint Terraform (prd) 
-        run: |
-          terraform validate 
-          cd ../..
+      # - name: Initialize Terraform (uat)
+      #   run: |
+      #     cd ./uat/tf
+      #     terraform init -backend=false
+      #
+      # - name: Lint Terraform (uat) 
+      #   run: |
+      #     terraform validate 
+      #     cd ../..
+      #
+      # - name: Initialize Terraform (prd)
+      #   run: |
+      #     cd ./prd/tf
+      #     terraform init -backend=false
+      #
+      # - name: Lint Terraform (prd) 
+      #   run: |
+      #     terraform validate 
+      #     cd ../..

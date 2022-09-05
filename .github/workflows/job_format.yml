@@ -28,19 +28,23 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Initialize Terraform (dev)
-        run: make tf-init-nb env=dev
+        run: |
+          cd ./.deploy/dev/tf
+          terraform init -backend=false
 
       - name: Format Terraform (dev) 
-        run: make tf-fmt-check env=dev 
+        run: |
+          terraform fmt -check
+          cd ../..
 
-      - name: Initialize Terraform (uat)
-        run: make tf-init-nb env=uat
-
-      - name: Format Terraform (uat) 
-        run: make tf-fmt-check env=uat 
-
-      - name: Initialize Terraform (prd)
-        run: make tf-init-nb env=prd
-
-      - name: Format Terraform (prd) 
-        run: make tf-fmt-check env=prd 
+      # - name: Initialize Terraform (uat)
+      #   run: make tf-init-nb env=uat
+      #
+      # - name: Format Terraform (uat) 
+      #   run: make tf-fmt-check env=uat 
+      #
+      # - name: Initialize Terraform (prd)
+      #   run: make tf-init-nb env=prd
+      #
+      # - name: Format Terraform (prd) 
+      #   run: make tf-fmt-check env=prd 

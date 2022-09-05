@@ -15,15 +15,22 @@ jobs:
         with:
           version: v1.29
 
-  test_make_file:
+  lint_terraform_envs:
     name: Lint Terraform
     runs-on: ubuntu-latest
     steps:
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Initialize Terraform
+        run: make tf-init-nb
+
       - name: Run make command
-        run: make tf-fmt-check env=dev
+        run: make tf-fmt-check env=dev 
 
   # lint_terraform_dev:
   #   name: Lint Terraform dev

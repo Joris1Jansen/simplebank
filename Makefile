@@ -37,11 +37,14 @@ testapi:
 tf-init:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform init
 
-tf-init-check:
-	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform init -check
+tf-init-nb:
+	cd ./.deploy/$(env)/tf  && terraform init -backend=false
 
 tf-fmt:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform fmt
+
+tf-fmt-check:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform fmt -check
 
 tf-val:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform validate

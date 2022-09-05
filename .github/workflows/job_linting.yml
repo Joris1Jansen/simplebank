@@ -42,6 +42,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
       - name: Lint Terraform
         run: |
+          ls
           cd ./.deploy/dev/tf
           terraform init -backend=false
           terraform fmt -check

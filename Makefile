@@ -37,6 +37,9 @@ testapi:
 tf-init:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform init
 
+tf-init-check:
+	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform init -check
+
 tf-fmt:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform fmt
 

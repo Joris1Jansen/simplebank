@@ -30,19 +30,31 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Initialize Terraform (dev)
-        run: make tf-init-nb env=dev
+        run: |
+          cd ./.deploy/dev/tf
+          terraform init -backend=false
 
       - name: Lint Terraform (dev) 
-        run: make tf-val-check env=dev 
+        run: |
+          terraform validate 
+          cd ../..
 
       - name: Initialize Terraform (uat)
-        run: make tf-init-nb env=uat
+        run: |
+          cd ./uat/tf
+          terraform init -backend=false
 
       - name: Lint Terraform (uat) 
-        run: make tf-val-check env=uat 
+        run: |
+          terraform validate 
+          cd ../..
 
       - name: Initialize Terraform (prd)
-        run: make tf-init-nb env=prd
+        run: |
+          cd ./prd/tf
+          terraform init -backend=false
 
       - name: Lint Terraform (prd) 
-        run: make tf-val-check env=prd 
+        run: |
+          terraform validate 
+          cd ../..

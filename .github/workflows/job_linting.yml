@@ -47,7 +47,6 @@ jobs:
 
       - name: Lint Terraform
         run: |
-          ls
           cd ./.deploy/dev/tf
           terraform init -backend=false
           terraform fmt -check

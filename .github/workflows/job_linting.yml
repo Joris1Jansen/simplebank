@@ -33,16 +33,16 @@ jobs:
         run: make tf-init-nb env=dev
 
       - name: Lint Terraform (dev) 
-        run: make tf-fmt-check env=dev 
+        run: make tf-val-check env=dev 
 
       - name: Initialize Terraform (uat)
         run: make tf-init-nb env=uat
 
       - name: Lint Terraform (uat) 
-        run: make tf-fmt-check env=uat 
+        run: make tf-val-check env=uat 
 
       - name: Initialize Terraform (prd)
         run: make tf-init-nb env=prd
 
       - name: Lint Terraform (prd) 
-        run: make tf-fmt-check env=prd 
+        run: make tf-val-check env=prd 

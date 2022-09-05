@@ -44,10 +44,13 @@ tf-fmt:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform fmt
 
 tf-fmt-check:
-	cd ./.deploy/$(env)/tf  && terraform fmt 
+	cd ./.deploy/$(env)/tf  && terraform fmt -check
 
 tf-val:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform validate
+
+tf-val-check:
+	cd ./.deploy/$(env)/tf && terraform validate
 
 tf-plan:
 	docker-compose -f ./.deploy/$(env)/docker-compose.yaml run --rm terraform plan

@@ -1,9 +1,9 @@
-name: Lint Golang && Terraform
+name: Format Golang && Terraform
 on:
   workflow_call:
 jobs:
-  lint_golang:
-    name: Lint Golang
+  format_golang:
+    name: Format Golang
     runs-on: ubuntu-latest
     steps:
       - name: Setup Golang
@@ -14,13 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Lint Glang 
-        uses: golangci/golangci-lint-action@v3
-        with:
-          version: v1.29
+      - name: Format Glang 
+        run: gofmt -d .
 
-  lint_terraform:
-    name: Lint Terraform
+  format_terraform:
+    name: Format Terraform
     runs-on: ubuntu-latest
     steps:
       - name: Setup Terraform
@@ -32,17 +30,17 @@ jobs:
       - name: Initialize Terraform (dev)
         run: make tf-init-nb env=dev
 
-      - name: Lint Terraform (dev) 
+      - name: Format Terraform (dev) 
         run: make tf-fmt-check env=dev 
 
       - name: Initialize Terraform (uat)
         run: make tf-init-nb env=uat
 
-      - name: Lint Terraform (uat) 
+      - name: Format Terraform (uat) 
         run: make tf-fmt-check env=uat 
 
       - name: Initialize Terraform (prd)
         run: make tf-init-nb env=prd
 
-      - name: Lint Terraform (prd) 
+      - name: Format Terraform (prd) 
         run: make tf-fmt-check env=prd 

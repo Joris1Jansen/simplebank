@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Format Glang 
-        run: gofmt -d .
+        run: ./scripts/go_fmt.sh
 
   format_terraform:
     name: Format Terraform
@@ -33,9 +33,7 @@ jobs:
           terraform init -backend=false
 
       - name: Format Terraform (dev) 
-        run: |
-          terraform fmt -check
-          cd ../..
+        run: ./scripts/tf_fmt.sh
 
       # - name: Initialize Terraform (uat)
       #   run: make tf-init-nb env=uat

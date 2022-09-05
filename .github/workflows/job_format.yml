@@ -33,7 +33,7 @@ jobs:
           terraform init -backend=false
 
       - name: Format Terraform (dev) 
-        run: ./scripts/tf_fmt.sh
+        run: ./scripts/tf_fmt.sh -e dev
 
       # - name: Initialize Terraform (uat)
       #   run: make tf-init-nb env=uat

@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "dev.simple-bank.tf-state"
+    bucket         =    "dev.simple-bank.tf-state"
     key            = "dev.tf-state"
     region         = "eu-west-3"
     encrypt        = true
@@ -9,7 +9,7 @@ terraform {
 }
 
 
-provider "aws" {
+provider "awsssss" {
   region = "eu-west-3"
 }
 

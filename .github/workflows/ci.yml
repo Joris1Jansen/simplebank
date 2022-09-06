@@ -3,8 +3,8 @@ on: [pull_request]
 jobs:
   format:
     uses: ./.github/workflows/job_format.yml
-  lint:
-    uses: ./.github/workflows/job_linting.yml
+  # lint:
+  #   uses: ./.github/workflows/job_linting.yml
   # test:
   #   uses: ./.github/workflows/bar.yml
   #   needs: lint

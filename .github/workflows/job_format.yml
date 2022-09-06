@@ -17,32 +17,30 @@ jobs:
       - name: Format Glang 
         run: ./scripts/go_fmt.sh
 
-  # format_terraform:
-  #   name: Format Terraform
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Setup Terraform
-  #       uses: hashicorp/setup-terraform@v2
-  #
-  #     - name: Checkout code
-  #       uses: actions/checkout@v3
-  #
-  #     - name: Initialize Terraform (dev)
-  #       run: |
-  #         cd ./.deploy/dev/tf
-  #         terraform init -backend=false
-  #
-  #     - name: Format Terraform (dev) 
-  #       run: ./scripts/tf_fmt.sh -e dev
-  #
-      # - name: Initialize Terraform (uat)
-      #   run: make tf-init-nb env=uat
-      #
-      # - name: Format Terraform (uat) 
-      #   run: make tf-fmt-check env=uat 
-      #
-      # - name: Initialize Terraform (prd)
-      #   run: make tf-init-nb env=prd
-      #
-      # - name: Format Terraform (prd) 
-      #   run: make tf-fmt-check env=prd 
+  format_terraform:
+    name: Format Terraform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+  
+      - name: Checkout code
+        uses: actions/checkout@v3
+  
+      - name: Initialize Terraform (dev)
+        run: terraform -chdir=.deploy/dev/tf init -backend=false 
+  
+      - name: Format Terraform (dev) 
+        run: terraform -chdir=.deploy/dev/tf fmt -check
+  
+      - name: Initialize Terraform (uat)
+        run: make tf-init-nb env=uat
+      
+      - name: Format Terraform (uat) 
+        run: make tf-fmt-check env=uat 
+      
+      - name: Initialize Terraform (prd)
+        run: make tf-init-nb env=prd
+      
+      - name: Format Terraform (prd) 
+        run: make tf-fmt-check env=prd 

@@ -34,13 +34,13 @@ jobs:
         run: terraform -chdir=.deploy/dev/tf fmt -check
   
       - name: Initialize Terraform (uat)
-        run: make tf-init-nb env=uat
-      
+        run: terraform -chdir=.deploy/uat/tf init -backend=false 
+  
       - name: Format Terraform (uat) 
-        run: make tf-fmt-check env=uat 
+        run: terraform -chdir=.deploy/uat/tf fmt -check
       
       - name: Initialize Terraform (prd)
-        run: make tf-init-nb env=prd
-      
+        run: terraform -chdir=.deploy/prd/tf init -backend=false 
+  
       - name: Format Terraform (prd) 
-        run: make tf-fmt-check env=prd 
+        run: terraform -chdir=.deploy/prd/tf fmt -check

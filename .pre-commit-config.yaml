@@ -1,0 +1,6 @@
+-   id: test
+    name: test
+    description: test
+    entry: ./.scripts/go_fmt.sh
+    language: golang
+

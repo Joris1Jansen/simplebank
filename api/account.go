@@ -11,6 +11,8 @@ import (
 	"github.com/lib/pq"
 )
 
+var _ = pq.Array
+
 type createAccountRequest struct {
 	Currency string `json:"currency" binding:"required,currency"`
 }

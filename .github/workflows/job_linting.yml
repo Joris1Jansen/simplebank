@@ -19,25 +19,25 @@ jobs:
         with:
           version: v1.29
 
-  lint_terraform:
-    name: Lint Terraform
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Initialize Terraform (dev)
-        run: |
-          cd ./.deploy/dev/tf
-          terraform init -backend=false
-
-      - name: Lint Terraform (dev) 
-        run: |
-          terraform validate 
-          cd ../..
+  # lint_terraform:
+  #   name: Lint Terraform
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Setup Terraform
+  #       uses: hashicorp/setup-terraform@v2
+  #
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #
+  #     - name: Initialize Terraform (dev)
+  #       run: |
+  #         cd ./.deploy/dev/tf
+  #         terraform init -backend=false
+  #
+  #     - name: Lint Terraform (dev) 
+  #       run: |
+  #         terraform validate 
+  #         cd ../..
 
       # - name: Initialize Terraform (uat)
       #   run: |

@@ -19,42 +19,30 @@ jobs:
         with:
           version: v1.29
 
-  # lint_terraform:
-  #   name: Lint Terraform
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Setup Terraform
-  #       uses: hashicorp/setup-terraform@v2
-  #
-  #     - name: Checkout code
-  #       uses: actions/checkout@v3
-  #
-  #     - name: Initialize Terraform (dev)
-  #       run: |
-  #         cd ./.deploy/dev/tf
-  #         terraform init -backend=false
-  #
-  #     - name: Lint Terraform (dev) 
-  #       run: |
-  #         terraform validate 
-  #         cd ../..
+  lint_terraform:
+    name: Lint Terraform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+  
+      - name: Checkout code
+        uses: actions/checkout@v3
+  
+      - name: Initialize Terraform (dev)
+        run: terraform -chdir=.deploy/dev/tf init -backend=false 
+  
+      - name: Format Terraform (dev) 
+        run: terraform -chdir=.deploy/dev/tf validate 
 
-      # - name: Initialize Terraform (uat)
-      #   run: |
-      #     cd ./uat/tf
-      #     terraform init -backend=false
-      #
-      # - name: Lint Terraform (uat) 
-      #   run: |
-      #     terraform validate 
-      #     cd ../..
-      #
-      # - name: Initialize Terraform (prd)
-      #   run: |
-      #     cd ./prd/tf
-      #     terraform init -backend=false
-      #
-      # - name: Lint Terraform (prd) 
-      #   run: |
-      #     terraform validate 
-      #     cd ../..
+      - name: Initialize Terraform (uat)
+        run: terraform -chdir=.deploy/uat/tf init -backend=false 
+  
+      - name: Format Terraform (uat) 
+        run: terraform -chdir=.deploy/uat/tf validate 
+
+      - name: Initialize Terraform (prd)
+        run: terraform -chdir=.deploy/prd/tf init -backend=false 
+  
+      - name: Format Terraform (prd) 
+        run: terraform -chdir=.deploy/prd/tf validate 

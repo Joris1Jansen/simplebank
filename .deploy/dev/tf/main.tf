@@ -9,7 +9,7 @@ terraform {
 }
 
 
-provider "aws" {
+provider "awssss" {
   region = "eu-west-3"
 }
 

@@ -1,0 +1,8 @@
+name: CI
+on: [pull_request]
+jobs:
+  format:
+    uses: ./.github/workflows/job_format.yml
+  lint:
+    uses: ./.github/workflows/job_linting.yml
+    needs: format

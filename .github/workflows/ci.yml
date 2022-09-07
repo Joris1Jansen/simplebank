@@ -3,14 +3,6 @@ on: [pull_request]
 jobs:
   format:
     uses: ./.github/workflows/job_format.yml
-  # lint:
-  #   uses: ./.github/workflows/job_linting.yml
-  # test:
-  #   uses: ./.github/workflows/bar.yml
-  #   needs: lint
-  # build:
-  #   uses: ./.github/workflows/bar.yml
-  #   needs: test
-  # folderjob:
-  #   uses: ./.github/workflows/jobs/folderjob.yml
-  #   needs: test
+  lint:
+    uses: ./.github/workflows/job_linting.yml
+    needs: format

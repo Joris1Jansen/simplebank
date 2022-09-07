@@ -1,0 +1,10 @@
+name: Build docker image 
+on:
+  workflow_call:
+jobs:
+  build_docker:
+    name: Build docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build docker image
+        run: docker build .

@@ -3,9 +3,10 @@ package api
 import (
 	"errors"
 	"fmt"
-	"github.com/Joris1Jansen/simplebank/token"
 	"net/http"
 	"strings"
+
+	"github.com/Joris1Jansen/simplebank/token"
 
 	"github.com/gin-gonic/gin"
 )

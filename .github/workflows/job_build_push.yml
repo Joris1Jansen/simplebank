@@ -24,7 +24,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ github.ref_name }}.simplebank
+          ECR_REPOSITORY: ${{ github.ref_name }}_simplebank
           IMAGE_TAG: latest 
         run: |
           docker build -t $ECR_REGISTERY/$ECR_REPOSITORY:$IMAGE_TAG .

@@ -3,9 +3,9 @@ name: CD
 on: 
   push:
     branches: 
-      - 'dev'
-      - 'uat'
-      - 'prd'
+      - dev
+      - uat
+      - prd
 
 jobs:
   format:

@@ -2,7 +2,13 @@ name: CI
 on: [pull_request]
 jobs:
   format:
-    uses: ./.github/workflows/job_format.yml
+    uses: ./.github/workflows/job_formatting.yml
   lint:
     uses: ./.github/workflows/job_linting.yml
     needs: format
+  test:
+    uses: ./.github/workflows/job_testing.yml
+    needs: lint
+  build:
+    uses: ./.github/workflows/job_building.yml
+    needs: test

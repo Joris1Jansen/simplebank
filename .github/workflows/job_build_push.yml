@@ -28,6 +28,4 @@ jobs:
           IMAGE_TAG: latest 
         run: |
           docker build -t $ECR_REGISTERY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push -a $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo ${{ github.ref_name }}
-
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG

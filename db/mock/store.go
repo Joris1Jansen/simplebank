@@ -15,7 +15,7 @@ import (
 // MockStore is a mock of Store interface.
 type MockStore struct {
 	ctrl     *gomock.Controller
-	recorder *MockStoreMockRecorder
+	recorder    *MockStoreMockRecorder
 }
 
 // MockStoreMockRecorder is the mock recorder for MockStore.
